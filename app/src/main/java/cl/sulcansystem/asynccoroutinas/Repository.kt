@@ -1,8 +1,10 @@
 package cl.sulcansystem.asynccoroutinas
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.net.URL
 
 class Repository {
 
@@ -10,7 +12,11 @@ class Repository {
         val urldisplay = url
         var bmp : Bitmap? = null
 
+        val inputStream = URL(urldisplay).openStream()
+        bmp = BitmapFactory.decodeStream(inputStream)
+
         bmp
+
 
     }
 }
